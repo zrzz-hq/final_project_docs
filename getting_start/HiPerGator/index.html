@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>HiPerGator - Final Project Docs</title>
+    <title>On HiPerGator - Final Project Docs</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "HiPerGator";
+        var mkdocs_page_name = "On HiPerGator";
         var mkdocs_page_input_path = "getting_start/HiPerGator.md";
         var mkdocs_page_url = null;
       </script>
@@ -41,13 +41,15 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Getting Start</span></p>
               <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../your_own_computer/">On your own computer</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">HiPerGator</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">On HiPerGator</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#deployment-using-jupyter-notebook">Deployment using Jupyter Notebook</a>
+    <li class="toctree-l2"><a class="reference internal" href="#deployment-using-jupyter-notebook-recommend">Deployment using Jupyter Notebook (Recommend)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#deployment-using-command-line">Deployment using Command Line</a>
     </li>
@@ -86,7 +88,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Getting Start</li>
-      <li class="breadcrumb-item active">HiPerGator</li>
+      <li class="breadcrumb-item active">On HiPerGator</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -102,7 +104,7 @@
 <li>Access to HiPerGator with a valid account.</li>
 </ul>
 <hr />
-<h2 id="deployment-using-jupyter-notebook">Deployment using Jupyter Notebook</h2>
+<h2 id="deployment-using-jupyter-notebook-recommend">Deployment using Jupyter Notebook (Recommend)</h2>
 <ul>
 <li>Start a new jupyter session from <a href="https://ood.rc.ufl.edu/pun/sys/dashboard/batch_connect/sys/jupyter/session_contexts/new">here</a> on HiPerGator and connect to it.</li>
 <li>Open a terminal tab, then clone the repo by:</li>
@@ -113,7 +115,7 @@
 <li>Create a jupyter notebook file with kernel <code>PyTorch-2.2.0</code> in the <code>final-project-code-report-lonely-life</code> folder.</li>
 <li>In the created jupyter notebook, paste the following code into a cell and run the cell.</li>
 </ul>
-<pre><code class="language-sh">!pip install torchmetrics[detection]
+<pre><code class="language-sh">!pip install torchmetrics torchmetrics[detection]
 </code></pre>
 <hr />
 <h2 id="deployment-using-command-line">Deployment using Command Line</h2>
@@ -132,7 +134,7 @@ cd final-project-code-report-lonely-life
 <ul>
 <li>Install Dependencies:</li>
 </ul>
-<pre><code class="language-bash">pip install torchmetrics[detection]
+<pre><code class="language-bash">pip install torchmetrics torchmetrics[detection]
 </code></pre>
               
             </div>
