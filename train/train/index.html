@@ -41,8 +41,6 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Getting Start</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../getting_start/">Overview</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../getting_start/your_own_computer/">On your own computer</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../getting_start/HiPerGator/">On HiPerGator</a>
@@ -203,7 +201,7 @@ losses, mAPs = train(
 pprint(losses)
 pprint(mAPs)
 </code></pre>
-<p>output:</p>
+<p>Python Output:</p>
 <pre><code class="language-plaintext">Batch Size: 32
 Weights: Default
 Backbone: resnet34_fpn
@@ -224,6 +222,8 @@ Loss: 0.348, mAP: 0.370
 (0.5567430853843689, 0.34804651141166687)
 (0.18615970015525818, 0.37041303515434265)
 </code></pre>
+<p>The best model is saved in <code>./trains/run1/</code> and named <code>best.pt</code>.<br />
+The log file is <code>./trains/run1/train.log</code>.</p>
               
             </div>
           </div><footer>
