@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>train.train - Final Project Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "train.train";
+        var mkdocs_page_input_path = "train/train.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Final Project Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Getting Start</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting_start/your_own_computer/">On your own computer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting_start/HiPerGator/">HiPerGator</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >test</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../test/test/">test.test</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../test/run/">test.run</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >train</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">train.train</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#arguments">Arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns">Returns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-it-works">How It Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-usage">Example Usage</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Final Project Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">API Reference</li>
+          <li class="breadcrumb-item">train</li>
+      <li class="breadcrumb-item active">train.train</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="traintrain"><code>train.train</code></h1>
+<div style="font-family: monospace; font-size: 14px; color: #333; background-color: #f8f9fa; border: 1px solid #ddd; border-left: 4px solid #007bff; padding: 10px; border-radius: 4px;">
+<span style="color: #0056b3; font-weight: bold;">train.train</span>(<br>
+&nbsp;&nbsp;image_dir, <br>
+&nbsp;&nbsp;label_dir, <br>
+&nbsp;&nbsp;weights = <span style="font-style: italic;">'Default'</span>, <br>
+&nbsp;&nbsp;backbone = <span style="font-style: italic;">'resnet50_fpn'</span>, <br>
+&nbsp;&nbsp;device = <span style="font-style: italic;">torch.device("cuda" if torch.cuda.is_available() else "cpu")</span>, <br>
+&nbsp;&nbsp;learning_rate = <span style="font-style: italic;">1e-4</span>, <br>
+&nbsp;&nbsp;batch_size = <span style="font-style: italic;">32</span>, <br>
+&nbsp;&nbsp;n_epochs = <span style="font-style: italic;">50</span>, <br>
+&nbsp;&nbsp;backbone_frozen = <span style="font-style: italic;">False</span> <br>
+) → <span style="color: #0056b3; font-weight: bold;">tuple[tuple[float],tuple[float]]</span>
+</div>
+
+<p>The function trains a Faster R-CNN model on a specified dataset and returns the training losses and validation mAP for each epoch. It creates a <code>runXX</code> folder under the trains directory, where XX is a number denoting the current training session's index. This folder contains the log file and the best model, selected based on the highest validation mAP score.</p>
+<h2 id="arguments">Arguments</h2>
+<ul>
+<li>
+<p><strong>image_dir</strong> (<code>str</code>):<br />
+  Path to the directory containing training images.</p>
+</li>
+<li>
+<p><strong>label_dir</strong> (<code>str</code>):<br />
+  Path to the directory containing training labels in YOLO format.</p>
+</li>
+<li>
+<p><strong>weights</strong> (<code>str</code>):<br />
+  Specifies how the model is initialized. Options:  </p>
+<ul>
+<li><code>Pretrained</code>: Uses pre-trained weights.  </li>
+<li><code>Default</code>: Initializes with backbone defaults.  </li>
+<li><code>None</code>: Starts with random weights.  </li>
+<li>Custom Path: A <code>.pt</code> file containing saved weights.</li>
+</ul>
+</li>
+<li>
+<p><strong>backbone</strong> (<code>str</code>):<br />
+  Backbone architecture. Options:</p>
+<ul>
+<li><code>resnet34_fpn</code></li>
+<li><code>resnet50_fpn</code></li>
+<li><code>mobilenetv3_fpn</code></li>
+</ul>
+</li>
+<li>
+<p><strong>device</strong> (<code>torch.device</code>):<br />
+  Device to run training (CPU or GPU).</p>
+</li>
+<li>
+<p><strong>learning_rate</strong> (<code>float</code>):<br />
+  Learning rate for the optimizer.</p>
+</li>
+<li>
+<p><strong>batch_size</strong> (<code>int</code>):<br />
+  Number of samples processed per batch.</p>
+</li>
+<li>
+<p><strong>n_epochs</strong> (<code>int</code>):<br />
+  Total number of training epochs.</p>
+</li>
+<li>
+<p><strong>backbone_frozen</strong> (<code>bool</code>):<br />
+  Whether to freeze the backbone parameters during training.</p>
+</li>
+</ul>
+<h2 id="returns">Returns</h2>
+<ul>
+<li>
+<p><strong>losses</strong>(<code>tuple[float]</code>):<br />
+  A list of the average loss for each epoch during training.</p>
+</li>
+<li>
+<p><strong>mAPs</strong>(<code>tuple[float]</code>):<br />
+  A list of the mean average precisions(mAP) on the validation set for each epoch during training.</p>
+</li>
+</ul>
+<h2 id="how-it-works">How It Works</h2>
+<ol>
+<li>Loads the training dataset and splits it into training (90%) and validation (10%) sets.</li>
+<li>Initializes the Faster R-CNN model with the specified backbone and weights.</li>
+<li>Trains the model using the Adam optimizer and StepLR scheduler.</li>
+<li>Logs training progress (loss and mAP) for each epoch.</li>
+<li>Saves the best model (based on mAP) to a unique <code>runXX</code> folder.</li>
+</ol>
+<h2 id="example-usage">Example Usage</h2>
+<pre><code class="language-python">from train import train
+from pprint import pprint
+
+losses, mAPs = train(
+    image_dir=&quot;../final project/datasets/training_set/images&quot;,
+    label_dir=&quot;../final project/datasets/training_set/labels&quot;,
+    weights='Default',
+    backbone='resnet34_fpn',
+    learning_rate=1e-4,
+    batch_size=32,
+    n_epochs=2,
+    backbone_frozen=False
+)
+
+pprint(losses)
+pprint(mAPs)
+</code></pre>
+<p>output:</p>
+<pre><code class="language-plaintext">Batch Size: 32
+Weights: Default
+Backbone: resnet34_fpn
+Device: cuda
+Learning Rate: 0.0001
+Number of Epochs: 2
+Backbone Frozen: False
+Epoch [1/2]
+Training: 100%|██████████| 107/107 [01:13&lt;00:00,  1.46it/s]
+Validating: 100%|██████████| 12/12 [00:04&lt;00:00,  2.57it/s]
+Best model saved
+Loss: 0.557, mAP: 0.186
+Epoch [2/2]
+Training: 100%|██████████| 107/107 [01:13&lt;00:00,  1.46it/s]
+Validating: 100%|██████████| 12/12 [00:04&lt;00:00,  2.50it/s]
+Best model saved
+Loss: 0.348, mAP: 0.370
+(0.5567430853843689, 0.34804651141166687)
+(0.18615970015525818, 0.37041303515434265)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../test/run/" class="btn btn-neutral float-left" title="test.run"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../test/run/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
