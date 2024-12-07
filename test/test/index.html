@@ -132,7 +132,8 @@
   Specifies the model weights to use:  </p>
 <ul>
 <li><code>Pretrained</code>: Loads pre-trained weights from a source.  </li>
-<li><code>Default</code>: Initializes the model with default weights provided by the backbone in PyTorch.  </li>
+<li><code>Recent</code>: Loads weights from <code>best.pt</code> in the most recent run folder.</li>
+<li><code>Default</code>: Uses original weights of Faster R-CNN.   </li>
 <li><code>None</code>: Starts with randomly initialized weights.  </li>
 <li>Custom path: Specify the path to a <code>.pt</code> file containing saved weights.</li>
 </ul>
@@ -205,7 +206,7 @@ pprint(&quot;Intersection over Union:&quot;, IoU)
  'map_small': 0.4415474832057953}
 0.6990163922309875
 </code></pre>
-<p>Images with predicted bounding boxes are saved in <code>./results</code></p>
+<p>Images with predicted bounding boxes are saved in <code>./results</code>.</p>
               
             </div>
           </div><footer>

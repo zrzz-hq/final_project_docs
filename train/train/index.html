@@ -128,8 +128,9 @@
 <p><strong>weights</strong> (<code>str</code>):<br />
   Specifies how the model is initialized. Options:  </p>
 <ul>
-<li><code>Pretrained</code>: Uses pre-trained weights.  </li>
-<li><code>Default</code>: Initializes with backbone defaults.  </li>
+<li><code>Pretrained</code>: Uses pre-trained weights on our dataset.  </li>
+<li><code>Recent</code>: Uses the weights in the most recent run folder.</li>
+<li><code>Default</code>: Uses original weights of Faster R-CNN.  </li>
 <li><code>None</code>: Starts with random weights.  </li>
 <li>Custom Path: A <code>.pt</code> file containing saved weights.</li>
 </ul>
